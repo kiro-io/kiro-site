@@ -881,11 +881,7 @@
           <h4>Request received!</h4>
           <p>We'll be in touch within 1 business day to schedule your demo. Check your inbox for a confirmation.</p>
         </div>
-        <form id="demo-form" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="55347468-fa19-4dc3-b1e1-0e3b2e9f0ce4">
-          <input type="hidden" name="subject" value="Kiro Demo Request">
-          <input type="hidden" name="from_name" value="Kiro Website">
-          <input type="hidden" name="redirect" value="https://kiro-io.github.io/kiro-site/thanks.html">
+        <form id="demo-form" onsubmit="handleSubmit(event,'form-success')">
           <div class="form-row">
             <div class="field">
               <label for="f-name">Full Name *</label>
@@ -1000,11 +996,7 @@
       <h4>Request received!</h4>
       <p>We'll be in touch within 1 business day to schedule your demo.</p>
     </div>
-    <form id="modal-form" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="55347468-fa19-4dc3-b1e1-0e3b2e9f0ce4">
-      <input type="hidden" name="subject" value="Kiro Demo Request">
-      <input type="hidden" name="from_name" value="Kiro Website">
-      <input type="hidden" name="redirect" value="https://kiro-io.github.io/kiro-site/thanks.html">
+    <form id="modal-form" onsubmit="handleSubmit(event,'modal-form-success')">
       <div class="form-row">
         <div class="field">
           <label>Full Name *</label>
@@ -1159,7 +1151,26 @@ function closeModalOutside(e) {
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-// Forms use native POST to FormSubmit.co — no JavaScript needed, no CORS.
+// ─── FORM SUBMISSION (mailto — zero external dependencies) ───
+function handleSubmit(e, successId) {
+  e.preventDefault();
+  const f = Object.fromEntries(new FormData(e.target));
+  const subject = encodeURIComponent('Kiro Demo Request — ' + (f.company || 'Unknown Company'));
+  const body = encodeURIComponent([
+    'Name:         ' + (f.name         || '—'),
+    'Company:      ' + (f.company      || '—'),
+    'Email:        ' + (f.email        || '—'),
+    'Role:         ' + (f.role         || '—'),
+    'Cluster Size: ' + (f.cluster_size || '—'),
+    'Platform:     ' + (f.platform     || '—'),
+    '',
+    'Message:',
+    (f.message || '—'),
+  ].join('\n'));
+  window.open('mailto:gkp.kiro.io@gmail.com?subject=' + subject + '&body=' + body);
+  e.target.style.display = 'none';
+  document.getElementById(successId).style.display = 'block';
+}
 </script>
 </body>
 </html>
