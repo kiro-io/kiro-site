@@ -883,9 +883,9 @@
         </div>
         <form id="demo-form" onsubmit="submitForm(event)">
           <!-- FormSubmit.co — replace YOUR_EMAIL with your actual email address -->
-          <input type="hidden" name="_subject" value="Kiro Demo Request">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+          <input type="hidden" name="subject" value="Kiro Demo Request">
+          <input type="hidden" name="from_name" value="Kiro Website">
           <div class="form-row">
             <div class="field">
               <label for="f-name">Full Name *</label>
@@ -1003,9 +1003,9 @@
       <p>We'll be in touch within 1 business day to schedule your demo.</p>
     </div>
     <form id="modal-form" onsubmit="submitModalForm(event)">
-      <input type="hidden" name="_subject" value="Kiro Demo Request (Modal)">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+      <input type="hidden" name="subject" value="Kiro Demo Request">
+      <input type="hidden" name="from_name" value="Kiro Website">
       <div class="form-row">
         <div class="field">
           <label>Full Name *</label>
@@ -1162,29 +1162,31 @@ function closeModalOutside(e) {
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-// ─── FORM SUBMISSION ───
-// Replace YOUR_EMAIL_HERE with your actual email address in both form actions below.
-// FormSubmit.co activates on first submission — you'll get a confirmation email.
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/gkp.kiro.io@gmail.com';
+// ─── FORM SUBMISSION (Web3Forms) ───
+// 1. Go to https://web3forms.com
+// 2. Enter gkp.kiro.io@gmail.com → click "Create Access Key"
+// 3. Replace YOUR_WEB3FORMS_KEY in the two hidden <input> fields above with the key you receive
+// Web3Forms is free, CORS-safe on GitHub Pages, no account required.
 
 async function submitForm(e) {
   e.preventDefault();
   const btn = document.getElementById('submit-text');
   btn.textContent = 'Sending…';
   try {
-    const data = new FormData(e.target);
-    const res = await fetch(FORM_ENDPOINT, {
+    const data = Object.fromEntries(new FormData(e.target));
+    const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: data
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
     });
-    if (res.ok) {
+    const json = await res.json();
+    if (json.success) {
       e.target.style.display = 'none';
       document.getElementById('form-success').style.display = 'block';
-    } else { throw new Error(); }
+    } else { throw new Error(json.message); }
   } catch {
     btn.textContent = 'Request Demo →';
-    alert('Something went wrong. Please email us directly.');
+    alert('Something went wrong. Please email us at gkp.kiro.io@gmail.com');
   }
 }
 
@@ -1193,19 +1195,20 @@ async function submitModalForm(e) {
   const btn = document.getElementById('modal-submit-text');
   btn.textContent = 'Sending…';
   try {
-    const data = new FormData(e.target);
-    const res = await fetch(FORM_ENDPOINT, {
+    const data = Object.fromEntries(new FormData(e.target));
+    const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: data
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
     });
-    if (res.ok) {
+    const json = await res.json();
+    if (json.success) {
       e.target.style.display = 'none';
       document.getElementById('modal-form-success').style.display = 'block';
-    } else { throw new Error(); }
+    } else { throw new Error(json.message); }
   } catch {
     btn.textContent = 'Request Demo →';
-    alert('Something went wrong. Please email us directly.');
+    alert('Something went wrong. Please email us at gkp.kiro.io@gmail.com');
   }
 }
 </script>
