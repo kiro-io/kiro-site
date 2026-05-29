@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="kGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E1B4B"/>
+    </linearGradient>
+    <linearGradient id="ringGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background squircle -->
+  <rect width="200" height="200" rx="44" fill="url(#bgGrad)"/>
+
+  <!-- Outer glow ring -->
+  <rect x="1" y="1" width="198" height="198" rx="43" fill="none"
+        stroke="url(#kGrad)" stroke-width="3" opacity="0.9"/>
+
+  <!-- Inner subtle ring -->
+  <rect x="8" y="8" width="184" height="184" rx="38" fill="none"
+        stroke="url(#ringGlow)" stroke-width="1" opacity="0.3"/>
+
+  <!-- K lettermark — the core brand symbol -->
+  <text x="100" y="142" text-anchor="middle"
+        font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"
+        font-size="130" font-weight="900" fill="url(#kGrad)">K</text>
+
+  <!-- Three pod state dots: green = busy (protected), dark = idle -->
+  <circle cx="72"  cy="178" r="8" fill="#10B981"/>
+  <circle cx="100" cy="178" r="8" fill="#334155"/>
+  <circle cx="128" cy="178" r="8" fill="#334155"/>
+</svg>

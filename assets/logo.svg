@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 160" width="480" height="160">
+  <defs>
+    <linearGradient id="kGradL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="bgIconL" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E1B4B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon: dark rounded square with gradient border -->
+  <rect x="0" y="0" width="160" height="160" rx="32" fill="url(#bgIconL)"/>
+  <rect x="2" y="2" width="156" height="156" rx="30" fill="none" stroke="url(#kGradL)" stroke-width="3"/>
+
+  <!-- K lettermark -->
+  <text x="80" y="116" text-anchor="middle"
+        font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"
+        font-size="106" font-weight="900" fill="url(#kGradL)">K</text>
+
+  <!-- Pod state indicators: green = busy (protected), dark = idle (deletable) -->
+  <circle cx="58"  cy="144" r="6" fill="#10B981"/>
+  <circle cx="80"  cy="144" r="6" fill="#334155"/>
+  <circle cx="102" cy="144" r="6" fill="#334155"/>
+
+  <!-- Wordmark -->
+  <text x="186" y="94"
+        font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"
+        font-size="62" font-weight="900" letter-spacing="-1" fill="#F8FAFC">KIRO</text>
+
+  <!-- Category label -->
+  <text x="189" y="118"
+        font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"
+        font-size="11" font-weight="700" letter-spacing="4" fill="#6366F1">SCALE SMART</text>
+
+  <!-- Tagline -->
+  <text x="189" y="138"
+        font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif"
+        font-size="12" fill="#475569">Never drop a request.</text>
+</svg>
