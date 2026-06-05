@@ -375,6 +375,86 @@
     .modal h3 { font-size: 22px; margin-bottom: 6px; }
     .modal .modal-sub { color: var(--muted); font-size: 14px; margin-bottom: 28px; }
 
+    /* ─── PRICING ─── */
+    #pricing { background: linear-gradient(180deg, var(--bg) 0%, rgba(15,26,46,.4) 100%); }
+    .pricing-toggle { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 48px; }
+    .toggle-label { font-size: 14px; font-weight: 600; color: var(--dim); transition: color .2s; }
+    .toggle-label.active { color: white; }
+    .toggle-switch {
+      position: relative; width: 48px; height: 26px;
+      background: var(--border); border-radius: 13px; cursor: pointer; transition: background .25s;
+    }
+    .toggle-switch.annual { background: linear-gradient(135deg, var(--green), var(--purple)); }
+    .toggle-knob {
+      position: absolute; top: 3px; left: 3px;
+      width: 20px; height: 20px; border-radius: 50%; background: white; transition: transform .25s;
+    }
+    .toggle-switch.annual .toggle-knob { transform: translateX(22px); }
+    .toggle-save { background: rgba(16,185,129,.12); color: var(--green); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; transition: opacity .2s; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+    .pricing-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 18px; padding: 36px 28px; position: relative; transition: all .3s;
+    }
+    .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.35); }
+    .pricing-card.featured { background: linear-gradient(160deg, #0E1E35, #101828); }
+    .pricing-card.featured::before {
+      content: ''; position: absolute; inset: -1px; border-radius: 19px;
+      background: linear-gradient(135deg, var(--green), var(--purple));
+      z-index: -1;
+    }
+    .pricing-popular {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--green), var(--purple));
+      color: white; font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      padding: 4px 16px; border-radius: 10px; white-space: nowrap;
+    }
+    .pricing-tier-badge {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .tier-starter { background: rgba(30,41,59,.8); color: var(--muted); }
+    .tier-professional { background: rgba(26,39,68,.8); color: var(--purple); border: 1px solid rgba(99,102,241,.3); }
+    .tier-enterprise { background: rgba(26,20,53,.8); color: var(--violet); border: 1px solid rgba(139,92,246,.3); }
+    .pricing-price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 6px; }
+    .pricing-currency { font-size: 18px; font-weight: 600; color: var(--muted); margin-top: 8px; }
+    .pricing-amount { font-size: 52px; font-weight: 900; line-height: 1; color: var(--text); }
+    .pricing-period { font-size: 14px; color: var(--dim); }
+    .pricing-cadence { font-size: 12px; color: var(--dim); margin-bottom: 8px; }
+    .pricing-per-scaler { font-size: 12px; color: var(--muted); margin-bottom: 20px; }
+    .pricing-per-scaler strong { color: var(--green); }
+    .pricing-divider { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+    .pricing-desc { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.65; }
+    .pricing-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    .pricing-feat { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; }
+    .feat-check { flex-shrink: 0; margin-top: 1px; }
+    .feat-check.yes { color: var(--green); }
+    .feat-check.yes-v { color: var(--violet); }
+    .feat-check.no { color: var(--dim); }
+    .feat-text { color: var(--muted); }
+    .feat-text.on { color: #CBD5E1; }
+    .feat-text.off { color: var(--dim); }
+    .pricing-cta { width: 100%; justify-content: center; padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 600; }
+    .pricing-cta-outline { background: var(--bg3); border: 1px solid var(--border); color: var(--muted); }
+    .pricing-cta-outline:hover { border-color: var(--muted); color: white; background: rgba(255,255,255,.04); transform: translateY(-1px); }
+    .pricing-cta-enterprise { background: rgba(26,20,53,.8); border: 1px solid rgba(139,92,246,.4); color: var(--violet); }
+    .pricing-cta-enterprise:hover { background: rgba(139,92,246,.12); border-color: var(--violet); color: white; transform: translateY(-1px); }
+
+    .pricing-scaler-rates { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+    .scaler-rate-item { text-align: center; padding: 18px 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; }
+    .scaler-rate-value { font-size: 1.7rem; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+    .scaler-rate-label { font-size: 12px; color: var(--muted); }
+
+    .pricing-eval {
+      margin-top: 32px; text-align: center;
+      background: rgba(99,102,241,.05); border: 1px solid rgba(99,102,241,.15);
+      border-radius: 12px; padding: 18px 24px; font-size: 14px; color: var(--muted);
+    }
+    .pricing-eval strong { color: white; }
+    .pricing-eval a { color: var(--green); border-bottom: 1px solid rgba(16,185,129,.3); transition: opacity .2s; }
+    .pricing-eval a:hover { opacity: .8; }
+
     /* ─── MOBILE ─── */
     @media (max-width: 900px) {
       .nav-links { display: none; }
@@ -389,6 +469,8 @@
       .stat { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
       .stat:nth-child(2n) { border-right: none; }
       .form-row { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
+      .pricing-scaler-rates { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       #hero { padding: 64px 16px 56px; }
@@ -398,6 +480,7 @@
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .pod-grid { grid-template-columns: repeat(5, 1fr); }
       .footer-inner { flex-direction: column; }
+      .pricing-scaler-rates { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -416,6 +499,7 @@
       <a href="#how">How It Works</a>
       <a href="#compare">vs Competitors</a>
       <a href="#integration">Integration</a>
+      <a href="#pricing">Pricing</a>
     </div>
     <button class="btn btn-primary" onclick="openModal()">Request Demo</button>
     <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleNav()">
@@ -842,6 +926,124 @@
   </div>
 </section>
 
+<!-- ═══ PRICING ═══ -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Pricing</div>
+      <h2>Pay for what you protect.<br><span class="grad">Not what you run.</span></h2>
+      <p>Per-KiroScaler licensing — priced per protected deployment, not per node. A 500-node cluster with 3 critical services pays for 3 scalers.</p>
+    </div>
+
+    <!-- Billing toggle -->
+    <div class="pricing-toggle reveal">
+      <span class="toggle-label" id="toggle-monthly">Monthly</span>
+      <div class="toggle-switch annual" id="billing-toggle" onclick="toggleBilling()">
+        <div class="toggle-knob"></div>
+      </div>
+      <span class="toggle-label active" id="toggle-annual">Annual</span>
+      <span class="toggle-save" id="toggle-save">Save 17%</span>
+    </div>
+
+    <!-- Tier cards -->
+    <div class="pricing-grid reveal">
+
+      <!-- STARTER -->
+      <div class="pricing-card">
+        <div class="pricing-tier-badge tier-starter">STARTER</div>
+        <div class="pricing-price">
+          <span class="pricing-currency">$</span>
+          <span class="pricing-amount" id="price-starter">299</span>
+          <span class="pricing-period">/mo</span>
+        </div>
+        <div class="pricing-cadence" id="cadence-starter">billed annually &middot; $359/mo month-to-month</div>
+        <div class="pricing-per-scaler">~<strong>$60/scaler/month</strong> &middot; up to 5 deployments</div>
+        <hr class="pricing-divider">
+        <div class="pricing-desc">For small teams protecting their first critical services.</div>
+        <div class="pricing-features">
+          <div class="pricing-feat"><span class="feat-check yes">✓</span><span class="feat-text on">Up to 5 managed deployments</span></div>
+          <div class="pricing-feat"><span class="feat-check yes">✓</span><span class="feat-text on">1 Kubernetes cluster</span></div>
+          <div class="pricing-feat"><span class="feat-check yes">✓</span><span class="feat-text on">HTTP / JMX / Prometheus scrape</span></div>
+          <div class="pricing-feat"><span class="feat-check yes">✓</span><span class="feat-text on">Built-in live dashboard</span></div>
+          <div class="pricing-feat"><span class="feat-check yes">✓</span><span class="feat-text on">Community Slack support</span></div>
+          <div class="pricing-feat"><span class="feat-check no">–</span><span class="feat-text off">Multi-cluster</span></div>
+          <div class="pricing-feat"><span class="feat-check no">–</span><span class="feat-text off">Air-gapped license</span></div>
+        </div>
+        <button class="btn pricing-cta pricing-cta-outline" onclick="openModal()">Get started</button>
+      </div>
+
+      <!-- PROFESSIONAL (featured) -->
+      <div class="pricing-card featured">
+        <div class="pricing-popular">MOST POPULAR</div>
+        <div class="pricing-tier-badge tier-professional">PROFESSIONAL</div>
+        <div class="pricing-price">
+          <span class="pricing-currency">$</span>
+          <span class="pricing-amount" id="price-professional">799</span>
+          <span class="pricing-period">/mo</span>
+        </div>
+        <div class="pricing-cadence" id="cadence-professional">billed annually &middot; $959/mo month-to-month</div>
+        <div class="pricing-per-scaler">~<strong>$32/scaler/month</strong> &middot; up to 25 deployments</div>
+        <hr class="pricing-divider" style="border-color:rgba(99,102,241,.25)">
+        <div class="pricing-desc">For scaling engineering teams running multiple production services.</div>
+        <div class="pricing-features">
+          <div class="pricing-feat"><span class="feat-check yes">✓</span><span class="feat-text on">Up to 25 managed deployments</span></div>
+          <div class="pricing-feat"><span class="feat-check yes">✓</span><span class="feat-text on">Up to 5 Kubernetes clusters</span></div>
+          <div class="pricing-feat"><span class="feat-check yes">✓</span><span class="feat-text on">HTTP / JMX / Prometheus scrape</span></div>
+          <div class="pricing-feat"><span class="feat-check yes">✓</span><span class="feat-text on">Built-in live dashboard</span></div>
+          <div class="pricing-feat"><span class="feat-check yes">✓</span><span class="feat-text on">Email support &middot; 48h SLA</span></div>
+          <div class="pricing-feat"><span class="feat-check yes">✓</span><span class="feat-text on">Priority updates</span></div>
+          <div class="pricing-feat"><span class="feat-check no">–</span><span class="feat-text off">Air-gapped license</span></div>
+        </div>
+        <button class="btn btn-primary pricing-cta" onclick="openModal()">Book a demo &rarr;</button>
+      </div>
+
+      <!-- ENTERPRISE -->
+      <div class="pricing-card">
+        <div class="pricing-tier-badge tier-enterprise">ENTERPRISE</div>
+        <div class="pricing-price">
+          <span class="pricing-amount" style="font-size:44px">Custom</span>
+        </div>
+        <div class="pricing-cadence">annual contract &middot; tailored to you</div>
+        <div class="pricing-per-scaler" style="color:var(--muted)"><strong style="color:var(--violet)">$15–25/scaler/month</strong> at volume</div>
+        <hr class="pricing-divider">
+        <div class="pricing-desc">For large orgs, regulated environments, and air-gapped clusters.</div>
+        <div class="pricing-features">
+          <div class="pricing-feat"><span class="feat-check yes-v">✓</span><span class="feat-text on">Unlimited deployments</span></div>
+          <div class="pricing-feat"><span class="feat-check yes-v">✓</span><span class="feat-text on">Unlimited clusters</span></div>
+          <div class="pricing-feat"><span class="feat-check yes-v">✓</span><span class="feat-text on">Dedicated Slack &middot; 4h SLA</span></div>
+          <div class="pricing-feat"><span class="feat-check yes-v">✓</span><span class="feat-text on">Air-gapped license option</span></div>
+          <div class="pricing-feat"><span class="feat-check yes-v">✓</span><span class="feat-text on">Custom SLAs + indemnity</span></div>
+          <div class="pricing-feat"><span class="feat-check yes-v">✓</span><span class="feat-text on">Quarterly business review</span></div>
+          <div class="pricing-feat"><span class="feat-check yes-v">✓</span><span class="feat-text on">SOC 2 / compliance docs</span></div>
+        </div>
+        <button class="btn pricing-cta pricing-cta-enterprise" onclick="openModal()">Talk to sales</button>
+      </div>
+    </div>
+
+    <!-- Effective per-scaler rates -->
+    <div class="pricing-scaler-rates reveal">
+      <div class="scaler-rate-item">
+        <div class="scaler-rate-value" style="color:var(--muted)">~$60</div>
+        <div class="scaler-rate-label">per scaler / month &middot; Starter</div>
+      </div>
+      <div class="scaler-rate-item" style="border-color:rgba(16,185,129,.25)">
+        <div class="scaler-rate-value grad">~$32</div>
+        <div class="scaler-rate-label">per scaler / month &middot; Professional <span style="color:var(--green)">(47% cheaper)</span></div>
+      </div>
+      <div class="scaler-rate-item">
+        <div class="scaler-rate-value" style="color:var(--violet)">$15–25</div>
+        <div class="scaler-rate-label">per scaler / month &middot; Enterprise</div>
+      </div>
+    </div>
+
+    <!-- Eval mode callout -->
+    <div class="pricing-eval reveal">
+      <strong>Try before you buy.</strong> No license required for evaluation — Kiro runs in eval mode allowing 1 KiroScaler at no cost. No credit card, no time limit.
+      &nbsp;<a href="#integration">Install via Helm &rarr;</a>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ DEMO ═══ -->
 <section id="demo">
   <div class="container">
@@ -881,7 +1083,11 @@
           <h4>Request received!</h4>
           <p>We'll be in touch within 1 business day to schedule your demo. Check your inbox for a confirmation.</p>
         </div>
-        <form id="demo-form" onsubmit="handleSubmit(event,'form-success')">
+        <form id="demo-form" onsubmit="submitForm(event)">
+          <!-- FormSubmit.co — replace YOUR_EMAIL with your actual email address -->
+          <input type="hidden" name="_subject" value="Kiro Demo Request">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
           <div class="form-row">
             <div class="field">
               <label for="f-name">Full Name *</label>
@@ -936,7 +1142,9 @@
             <label for="f-msg">What problem are you trying to solve?</label>
             <textarea id="f-msg" name="message" placeholder="e.g. We keep getting paged when HPA scales down during peak traffic…"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary form-submit">Request Demo →</button>
+          <button type="submit" class="btn btn-primary form-submit">
+            <span id="submit-text">Request Demo →</span>
+          </button>
           <p class="form-note">We respect your privacy. No spam, ever. Unsubscribe any time.</p>
         </form>
       </div>
@@ -962,6 +1170,7 @@
           <a href="#proof">The Guarantee</a>
           <a href="#features">Features</a>
           <a href="#compare">vs Competitors</a>
+          <a href="#pricing">Pricing</a>
         </div>
         <div class="footer-col">
           <h4>Docs</h4>
@@ -980,7 +1189,7 @@
     </div>
     <div class="footer-bottom">
       <p>© 2026 Kiro. All rights reserved. Commercial License.</p>
-      <p>kiroio.com · Java 21 · Kubernetes 1.22+ · Commercial</p>
+      <p>kiro.io · Java 21 · Kubernetes 1.22+ · Commercial</p>
     </div>
   </div>
 </footer>
@@ -996,7 +1205,10 @@
       <h4>Request received!</h4>
       <p>We'll be in touch within 1 business day to schedule your demo.</p>
     </div>
-    <form id="modal-form" onsubmit="handleSubmit(event,'modal-form-success')">
+    <form id="modal-form" onsubmit="submitModalForm(event)">
+      <input type="hidden" name="_subject" value="Kiro Demo Request (Modal)">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
       <div class="form-row">
         <div class="field">
           <label>Full Name *</label>
@@ -1038,12 +1250,43 @@
         <label>What are you trying to solve?</label>
         <textarea name="message" placeholder="e.g. HPA drops connections during scale-down…" style="min-height:70px"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary form-submit">Request Demo →</button>
+      <button type="submit" class="btn btn-primary form-submit">
+        <span id="modal-submit-text">Request Demo →</span>
+      </button>
     </form>
   </div>
 </div>
 
 <script>
+// ─── PRICING TOGGLE ───
+let isAnnual = true;
+function toggleBilling() {
+  isAnnual = !isAnnual;
+  const tog = document.getElementById('billing-toggle');
+  const save = document.getElementById('toggle-save');
+  const lbl_m = document.getElementById('toggle-monthly');
+  const lbl_a = document.getElementById('toggle-annual');
+  if (isAnnual) {
+    tog.classList.add('annual');
+    save.style.opacity = '1';
+    lbl_m.classList.remove('active');
+    lbl_a.classList.add('active');
+    document.getElementById('price-starter').textContent = '299';
+    document.getElementById('cadence-starter').textContent = 'billed annually · $359/mo month-to-month';
+    document.getElementById('price-professional').textContent = '799';
+    document.getElementById('cadence-professional').textContent = 'billed annually · $959/mo month-to-month';
+  } else {
+    tog.classList.remove('annual');
+    save.style.opacity = '0';
+    lbl_m.classList.add('active');
+    lbl_a.classList.remove('active');
+    document.getElementById('price-starter').textContent = '359';
+    document.getElementById('cadence-starter').textContent = 'month-to-month · save 17% billed annually';
+    document.getElementById('price-professional').textContent = '959';
+    document.getElementById('cadence-professional').textContent = 'month-to-month · save 17% billed annually';
+  }
+}
+
 // ─── POD VISUALIZATION ───
 const pods = [
   {name:'pod-1', state:'busy'},
@@ -1151,25 +1394,51 @@ function closeModalOutside(e) {
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-// ─── FORM SUBMISSION (mailto — zero external dependencies) ───
-function handleSubmit(e, successId) {
+// ─── FORM SUBMISSION ───
+// Replace YOUR_EMAIL_HERE with your actual email address in both form actions below.
+// FormSubmit.co activates on first submission — you'll get a confirmation email.
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/gkp.kiro.io@gmail.com';
+
+async function submitForm(e) {
   e.preventDefault();
-  const f = Object.fromEntries(new FormData(e.target));
-  const subject = encodeURIComponent('Kiro Demo Request — ' + (f.company || 'Unknown Company'));
-  const body = encodeURIComponent([
-    'Name:         ' + (f.name         || '—'),
-    'Company:      ' + (f.company      || '—'),
-    'Email:        ' + (f.email        || '—'),
-    'Role:         ' + (f.role         || '—'),
-    'Cluster Size: ' + (f.cluster_size || '—'),
-    'Platform:     ' + (f.platform     || '—'),
-    '',
-    'Message:',
-    (f.message || '—'),
-  ].join('\n'));
-  window.open('mailto:gkp.kiro.io@gmail.com?subject=' + subject + '&body=' + body);
-  e.target.style.display = 'none';
-  document.getElementById(successId).style.display = 'block';
+  const btn = document.getElementById('submit-text');
+  btn.textContent = 'Sending…';
+  try {
+    const data = new FormData(e.target);
+    const res = await fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    });
+    if (res.ok) {
+      e.target.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    } else { throw new Error(); }
+  } catch {
+    btn.textContent = 'Request Demo →';
+    alert('Something went wrong. Please email us directly.');
+  }
+}
+
+async function submitModalForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('modal-submit-text');
+  btn.textContent = 'Sending…';
+  try {
+    const data = new FormData(e.target);
+    const res = await fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    });
+    if (res.ok) {
+      e.target.style.display = 'none';
+      document.getElementById('modal-form-success').style.display = 'block';
+    } else { throw new Error(); }
+  } catch {
+    btn.textContent = 'Request Demo →';
+    alert('Something went wrong. Please email us directly.');
+  }
 }
 </script>
 </body>
